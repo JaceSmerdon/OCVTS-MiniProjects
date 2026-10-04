@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OCVTS Coding Day</title>
+</head>
+<body>
+  <header>
+    <h1>OCVTS Coding Day</h1>
+    <p>A day of coding, creativity, and friendly competition.</p>
+    <nav aria-label="Main navigation">
+      <a href="#event">Event Details</a> |
+      <a href="#registration">Register</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="event">
+      <h2>About the Event</h2>
+      <img
+        src="miniproject-2.png"
+        alt="Students working together on computers"
+        width="600"
+      >
+      <p>
+        Join OCVTS students for a fun day of programming challenges and
+        technology activities. Whether you are new to coding or have written
+        lots of programs, you are welcome to take part and learn something new.
+      </p>
+
+      <h3>Event Information</h3>
+      <ul>
+        <li><strong>Date:</strong> November 14, 2026</li>
+        <li><strong>Time:</strong> 9:00 AM–3:00 PM</li>
+        <li><strong>Location:</strong> OCVTS Main Campus, 137 Bey Lea Road, Toms River, NJ</li>
+        <li><strong>Admission:</strong> Free for students; registration is required.</li>
+      </ul>
+
+      <h3>Important Details</h3>
+      <p>
+        Check-in opens at 8:30 AM. Bring your school ID and a laptop if you have
+        one. Lunch will be available for attendees who select it on the form.
+      </p>
+    </section>
+
+    <section id="registration">
+      <h2>Register for Coding Day</h2>
+      <p>Fill out the form below to reserve your place.</p>
+
+      <form action="#" method="get">
+        <fieldset>
+          <legend>Personal Information</legend>
+
+          <p>
+            <label for="first-name">First Name:</label>
+            <input type="text" id="first-name" name="first-name" required>
+          </p>
+
+          <p>
+            <label for="last-name">Last Name:</label>
+            <input type="text" id="last-name" name="last-name" required>
+          </p>
+
+          <p>
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required>
+          </p>
+
+          <p>
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required>
+          </p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Event Information</legend>
+
+          <p>
+            <label for="event-date">Event Date:</label>
+            <input
+              type="date"
+              id="event-date"
+              name="event-date"
+              value="2026-11-14"
+              min="2026-11-14"
+              max="2026-11-14"
+              required
+            >
+          </p>
+
+          <p>How will you attend?</p>
+          <p>
+            <input type="radio" id="in-person" name="attendance" value="in-person" required>
+            <label for="in-person">In Person</label>
+          </p>
+          <p>
+            <input type="radio" id="virtual" name="attendance" value="virtual">
+            <label for="virtual">Virtual</label>
+          </p>
+
+          <p>
+            <label for="ticket-type">Ticket Type:</label>
+            <select id="ticket-type" name="ticket-type" required>
+              <option value="">Choose a ticket type</option>
+              <option value="student">Student</option>
+              <option value="general">General Admission</option>
+            </select>
+          </p>
+
+          <p>
+            <input type="checkbox" id="lunch" name="lunch" value="yes">
+            <label for="lunch">I would like lunch.</label>
+          </p>
+
+          <p>
+            <label for="message">Questions or comments:</label><br>
+            <textarea id="message" name="message" rows="4" cols="40"></textarea>
+          </p>
+        </fieldset>
+
+        <button type="submit">Submit Registration</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>OCVTS Coding Day | November 14, 2026</p>
+  </footer>
+</body>
+</html>
