@@ -1,52 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="author" content="Jace Smerdon" />
-        <meta name="description" content="A portfolio showcasing my web development work." />
-        <link rel="icon" href="favicon.ico" />
-        <meta property="og:title" content="Jace Smerdon Portfolio" />
-        <meta property="og:image" content="favicon.ico" />
-        <title>Jace Smerdon Portfolio</title>
-    </head>
-    <body>
-        <!-- Jace Smerdon - 9/24/2026 -->
-        <!-- Header / Hero Section -->
-        <header>
-            <h1>Hello World</h1>
-            <p lang="es">Hola Mundo</p>
-        </header>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jace's Favorites Hub</title>
+  <style>
+    body {
+      background-color: #eeeeee;
+      color: #222222;
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
 
-        <!-- Navigation -->
-        <nav>
-            <a href="#">Home</a>
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-        </nav>
+    header, main, footer {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
 
-        <!-- About Section -->
-        <section id="about">
-            <h2>About Me</h2>
-            <p>Welcome to my portfolio website.</p>
-        </section>
+    header {
+      background-color: #2d5d50;
+      color: white;
+    }
 
-        <!-- Projects Section -->
-        <section id="projects">
-            <h2>Projects</h2>
-            <p>My web development work will go here.</p>
-        </section>
+    nav a {
+      color: white;
+      margin-right: 15px;
+    }
 
-        <!-- Contact Section -->
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>Email me here.</p>
-        </section>
+    section {
+      background-color: white;
+      border: 1px solid #cccccc;
+      margin: 20px 0;
+      padding: 20px;
+    }
 
-        <!-- Footer -->
-        <footer>
-            <p>&copy; 2026 Jace Smerdon</p>
-        </footer>
-    </body>
+    article {
+      border-top: 1px solid #dddddd;
+      padding-top: 10px;
+    }
+
+    img {
+      max-width: 100%;
+      width: 350px;
+    }
+
+    figure {
+      margin-left: 0;
+    }
+
+    figcaption {
+      color: #555555;
+      font-size: 14px;
+    }
+
+    footer {
+      color: #555555;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Jace's Favorites Hub</h1>
+    <p>I am a 17-year-old high school student taking a vocational school class because I want to work with computers in the future.</p>
+
+    <nav>
+      <a href="#movies">Movies</a>
+      <a href="#music">Music</a>
+      <a href="#games">Games</a>
+      <a href="#food">Food</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="movies">
+      <h2>Movies</h2>
+      <p>I like anime and comedies because I enjoy interesting stories, good plots, and movies that make me laugh.</p>
+
+      <figure>
+        <img src="JJK-Execution.png" alt="Jujutsu Kaisen: Execution movie poster">
+        <figcaption>Jujutsu Kaisen: Execution is one of my favorite movies.</figcaption>
+      </figure>
+
+      <article>
+        <h3>My favorite movies</h3>
+        <ul>
+          <li>Jujutsu Kaisen: Execution</li>
+          <li>Grown Ups</li>
+          <li>Step Brothers</li>
+        </ul>
+        <a href="https://www.imdb.com/" target="_blank">Visit IMDb</a>
+      </article>
+    </section>
+
+    <section id="music">
+      <h2>Music</h2>
+      <p>Music is something I listen to when I am relaxing, working, or just hanging out.</p>
+
+      <figure>
+        <img src="Steve-Lacey.png" alt="Steve Lacy music picture">
+        <figcaption>Steve Lacy is one of my favorite artists.</figcaption>
+      </figure>
+
+      <article>
+        <h3>My favorite artists</h3>
+        <ul>
+          <li>Steve Lacy</li>
+          <li>The Smiths</li>
+          <li>Green Day</li>
+        </ul>
+        <a href="https://open.spotify.com/" target="_blank">Listen on Spotify</a>
+      </article>
+    </section>
+
+    <section id="games">
+      <h2>Games</h2>
+      <p>I enjoy games where I can explore, collect things, build, or compete with other players.</p>
+
+      <figure>
+        <img src="Black-Ops-3.png" alt="Call of Duty: Black Ops III cover art">
+        <figcaption>Call of Duty: Black Ops III is one of my favorite games.</figcaption>
+      </figure>
+
+      <article>
+        <h3>My favorite games</h3>
+        <ul>
+          <li>Minecraft</li>
+          <li>Pokemon</li>
+          <li>Call of Duty: Black Ops III</li>
+        </ul>
+        <a href="https://www.nintendo.com/" target="_blank">Visit Nintendo</a>
+      </article>
+    </section>
+
+    <section id="food">
+      <h2>Food</h2>
+      <p>I like trying different foods, especially foods with interesting flavors and textures.</p>
+
+      <figure>
+        <img src="Sushi.png" alt="Sushi pieces held by chopsticks">
+        <figcaption>Sushi is one of my favorite foods.</figcaption>
+      </figure>
+
+      <article>
+        <h3>My favorite foods</h3>
+        <ul>
+          <li>Sushi</li>
+          <li>Calamari</li>
+          <li>Pretzel burgers</li>
+        </ul>
+        <a href="https://www.allrecipes.com/" target="_blank">Find recipes on Allrecipes</a>
+      </article>
+    </section>
+
+    <section>
+      <h2>My Top Five</h2>
+      <p>Here are five favorites from all of my categories.</p>
+      <ol>
+        <li>Jujutsu Kaisen: Execution</li>
+        <li>Minecraft</li>
+        <li>Steve Lacy</li>
+        <li>Sushi</li>
+        <li>Grown Ups</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer>
+    <p>Created by Jace Smerdon</p>
+  </footer>
+</body>
 </html>
