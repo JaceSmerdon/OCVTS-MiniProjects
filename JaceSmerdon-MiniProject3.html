@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunset Bistro</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&amp;display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f3ed;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #8b4513;
+            color: white;
+            padding: 20px;
+        }
+
+        nav {
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #d2691e;
+        }
+
+        #home {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        #home img {
+            width: 400px;
+            max-width: 90%;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+            margin-top: 15px;
+        }
+
+        #home a {
+            display: inline-block;
+            margin-top: 20px;
+            background-color: #8b4513;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        #home a:hover {
+            background-color: #d2691e;
+        }
+
+        section {
+            padding: 50px 20px;
+        }
+
+        h2 {
+            color: #8b4513;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .menu-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .menu-item {
+            background-color: white;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            width: 250px;
+            box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .menu-item h3 {
+            margin-bottom: 10px;
+        }
+
+        .about-container {
+            text-align: center;
+        }
+
+        .about-container img {
+            width: 500px;
+            max-width: 90%;
+            margin-top: 20px;
+            border-radius: 10px;
+            border: 3px solid #8b4513;
+        }
+
+        .contact-info {
+            max-width: 600px;
+            margin: auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #ddd;
+        }
+
+        .reservation-form {
+            max-width: 600px;
+            margin: auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #ddd;
+        }
+
+        .reservation-form label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        .reservation-form input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .reservation-form button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #8b4513;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .reservation-form button:hover {
+            background-color: #d2691e;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #8b4513;
+            color: white;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="#reserve">Reserve</a>
+    </nav>
+</header>
+
+<main>
+
+    <section id="home">
+        <h1>Sunset Bistro</h1>
+        <p>Fresh flavors, warm atmosphere, unforgettable dining.</p>
+
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=900" alt="Inside a welcoming restaurant">
+
+        <br>
+        <a href="#menu">View Our Menu</a>
+    </section>
+
+    <section id="menu">
+        <h2>Menu</h2>
+
+        <div class="menu-container">
+
+            <div class="menu-item">
+                <h3>Classic Cheeseburger</h3>
+                <p>Beef patty, lettuce, tomato, onion, and house sauce.</p>
+                <strong>$12.99</strong>
+            </div>
+
+            <div class="menu-item">
+                <h3>Grilled Chicken Pasta</h3>
+                <p>Tender chicken served over creamy Alfredo pasta.</p>
+                <strong>$14.99</strong>
+            </div>
+
+            <div class="menu-item">
+                <h3>Chocolate Lava Cake</h3>
+                <p>Rich chocolate cake with a warm molten center.</p>
+                <strong>$7.99</strong>
+            </div>
+
+        </div>
+
+        <h3 style="text-align:center; margin-top:30px;">Popular Items</h3>
+        <ul style="text-align:center; list-style-position:inside;">
+            <li>House Burger</li>
+            <li>Chicken Alfredo</li>
+            <li>Lava Cake</li>
+        </ul>
+    </section>
+
+    <section id="about">
+        <h2>About Us</h2>
+
+        <div class="about-container">
+            <p>
+                Sunset Bistro is a family-owned restaurant created to bring
+                people together through fresh food and friendly service.
+                Inspired by modern American cuisine, we focus on quality
+                ingredients and a welcoming atmosphere.
+            </p>
+
+            <p>
+                Our mission is simple: provide great food, excellent service,
+                and a comfortable place for everyone to enjoy.
+            </p>
+
+            <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=900" alt="Restaurant dining area">
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Location & Contact</h2>
+
+        <div class="contact-info">
+            <p><strong>Address:</strong> 123 Main Street, Toms River, NJ</p>
+            <p><strong>Phone:</strong> (555) 123-4567</p>
+            <p><strong>Email:</strong> info@sunsetbistro.com</p>
+
+            <h3>Hours of Operation</h3>
+            <ul>
+                <li>Monday - Thursday: 11 AM - 9 PM</li>
+                <li>Friday - Saturday: 11 AM - 11 PM</li>
+                <li>Sunday: 12 PM - 8 PM</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="reserve">
+        <h2>Table Reservation</h2>
+
+        <form class="reservation-form" id="reservation-form">
+
+            <label for="name">Name</label>
+            <input type="text" id="name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" required>
+
+            <label for="date">Reservation Date</label>
+            <input type="date" id="date" required>
+
+            <label for="guests">Number of Guests</label>
+            <input type="number" id="guests" min="1" required>
+
+            <button type="submit">Submit Reservation</button>
+        </form>
+    </section>
+
+</main>
+
+<footer>
+    <p>&copy; 2026 Sunset Bistro. All Rights Reserved.</p>
+</footer>
+
+<script>
+    const reservationForm = document.getElementById("reservation-form");
+
+    reservationForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+        reservationForm.reset();
+        window.location.reload();
+    });
+</script>
+
+</body>
+</html>
