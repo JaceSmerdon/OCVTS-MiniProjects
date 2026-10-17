@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse Jace's reviews of anime, music, and video games.">
+  <title>Offbeat Reviews | Reviews</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="reviews.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="wordmark" href="JaceSmerdon-MiniProject4.html" aria-label="Offbeat Reviews home"><span class="wordmark-mark">O</span> offbeat<span class="wordmark-light">reviews</span></a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="JaceSmerdon-MiniProject4.html">Home</a>
+      <a class="active" href="reviews.html" aria-current="page">Reviews</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="page-width">
+    <section class="page-title">
+      <p class="eyebrow">The good, the great, and the replayable</p>
+      <h1>All the reviews.</h1>
+      <p>Anime, music, and games I enjoy. Search for a title or narrow the list by category.</p>
+    </section>
+
+    <section class="review-tools" aria-label="Filter reviews">
+      <div class="field-group">
+        <label for="review-search">Search titles or reviews</label>
+        <input id="review-search" type="search" placeholder="Try “Jujutsu Kaisen”">
+      </div>
+      <div class="field-group">
+        <label for="category-filter">Category</label>
+        <select id="category-filter">
+          <option value="all">All categories</option>
+          <option value="movie">Anime / movies</option>
+          <option value="game">Games</option>
+          <option value="music">Music</option>
+        </select>
+      </div>
+    </section>
+    <p class="review-count" id="review-count" aria-live="polite">Showing 3 reviews</p>
+
+    <section class="review-grid" id="review-grid" aria-label="Entertainment reviews">
+      <article class="review-card" id="jujutsu-kaisen" data-category="movie" data-title="jujutsu kaisen execution anime action curses">
+        <div class="review-image"><img src="JJK-Execution.png" alt="Jujutsu Kaisen: Execution movie poster" loading="lazy"></div>
+        <div class="review-card-body">
+          <p class="card-meta">ANIME · ACTION · MOVIE</p>
+          <h2>Jujutsu Kaisen: Execution</h2>
+          <p class="card-score">9.0 / 10 <span class="stars" aria-label="5 out of 5 stars">★★★★★</span></p>
+          <p>Big fights bring the energy, but the characters and the world are what make me want to keep watching. A fun pick for fans of the series.</p>
+          <div class="card-bottom"><span class="pick-tag">MY VERDICT: MUST-WATCH</span><button class="favorite-button" type="button" aria-pressed="false">♡ Save</button></div>
+        </div>
+      </article>
+
+      <article class="review-card" data-category="game" data-title="call of duty black ops iii video game shooter multiplayer">
+        <div class="review-image"><img src="Black-Ops-3.png" alt="Call of Duty: Black Ops III cover art" loading="lazy"></div>
+        <div class="review-card-body">
+          <p class="card-meta">VIDEO GAME · ACTION · SHOOTER</p>
+          <h2>Call of Duty: Black Ops III</h2>
+          <p class="card-score">8.5 / 10 <span class="stars" aria-label="4 out of 5 stars">★★★★☆</span></p>
+          <p>Quick matches and a lot happening on screen make this an easy game to pick up again. One of my favorite games when I want fast action.</p>
+          <div class="card-bottom"><span class="pick-tag">MY VERDICT: REPLAYABLE</span><button class="favorite-button" type="button" aria-pressed="false">♡ Save</button></div>
+        </div>
+      </article>
+
+      <article class="review-card" data-category="music" data-title="steve lacy music artist alternative r&b">
+        <div class="review-image"><img src="Steve-Lacey.png" alt="Steve Lacy, one of Jace's favorite artists" loading="lazy"></div>
+        <div class="review-card-body">
+          <p class="card-meta">MUSIC · ALTERNATIVE R&amp;B</p>
+          <h2>Steve Lacy</h2>
+          <p class="card-score">8.5 / 10 <span class="stars" aria-label="4 out of 5 stars">★★★★☆</span></p>
+          <p>His music has a relaxed feel and a sound that stands out. A great choice for listening while unwinding or hanging out.</p>
+          <div class="card-bottom"><span class="pick-tag">MY VERDICT: ON REPEAT</span><button class="favorite-button" type="button" aria-pressed="false">♡ Save</button></div>
+        </div>
+      </article>
+    </section>
+    <p class="empty-state" id="empty-state" hidden>No reviews match that search. Try another title or category.</p>
+  </main>
+
+  <footer class="site-footer page-width">
+    <a class="wordmark" href="JaceSmerdon-MiniProject4.html"><span class="wordmark-mark">O</span> offbeat<span class="wordmark-light">reviews</span></a>
+    <p>Made by Jace Smerdon · Mini-Project #04</p>
+  </footer>
+  <script>
+    const searchInput = document.querySelector('#review-search');
+    const categoryFilter = document.querySelector('#category-filter');
+    const reviewCards = [...document.querySelectorAll('.review-card')];
+    const reviewCount = document.querySelector('#review-count');
+    const emptyState = document.querySelector('#empty-state');
+
+    function filterReviews() {
+      const searchTerm = searchInput.value.trim().toLowerCase();
+      const category = categoryFilter.value;
+      let visibleCount = 0;
+
+      reviewCards.forEach((card) => {
+        const matchesSearch = card.dataset.title.includes(searchTerm) || card.textContent.toLowerCase().includes(searchTerm);
+        const matchesCategory = category === 'all' || card.dataset.category === category;
+        card.hidden = !(matchesSearch && matchesCategory);
+        if (!card.hidden) visibleCount += 1;
+      });
+
+      reviewCount.textContent = `Showing ${visibleCount} ${visibleCount === 1 ? 'review' : 'reviews'}`;
+      emptyState.hidden = visibleCount > 0;
+    }
+
+    searchInput.addEventListener('input', filterReviews);
+    categoryFilter.addEventListener('change', filterReviews);
+
+    document.querySelectorAll('.favorite-button').forEach((button) => {
+      button.addEventListener('click', () => {
+        const saved = button.getAttribute('aria-pressed') === 'true';
+        button.setAttribute('aria-pressed', String(!saved));
+        button.textContent = saved ? '♡ Save' : '♥ Saved';
+      });
+    });
+  </script>
+</body>
+</html>
