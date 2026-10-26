@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Explore four memorable travel destinations, from Kyoto's quiet lanes to Iceland's dramatic landscapes.">
+	<title>Elsewhere | A Travel Destination Showcase</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
+	<style>
+		:root {
+			--ink: #19352f;
+			--muted: #65736d;
+			--paper: #f8f7f1;
+			--white: #fff;
+			--leaf: #a6bd78;
+			--rust: #c65e42;
+			--line: #dfe3d9;
+			--heading: 'Fraunces', Georgia, serif;
+			--body: 'DM Sans', Arial, sans-serif;
+		}
+
+		* { box-sizing: border-box; }
+		html { scroll-behavior: smooth; }
+		body {
+			margin: 0;
+			background: var(--paper);
+			color: var(--ink);
+			font-family: var(--body);
+			font-size: 16px;
+			line-height: 1.6;
+		}
+		img { display: block; max-width: 100%; }
+		a { color: inherit; }
+		.page-width { width: min(1160px, calc(100% - 48px)); margin-inline: auto; }
+
+		.site-header {
+			position: sticky;
+			z-index: 5;
+			top: 0;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 24px;
+			padding: 13px max(24px, calc((100vw - 1160px) / 2));
+			border-bottom: 1px solid var(--line);
+			background: rgb(248 247 241 / 94%);
+			backdrop-filter: blur(12px);
+		}
+		.wordmark {
+			display: inline-flex;
+			align-items: center;
+			gap: 9px;
+			font-family: var(--heading);
+			font-size: 23px;
+			font-weight: 700;
+			text-decoration: none;
+			white-space: nowrap;
+		}
+		.wordmark-mark {
+			display: grid;
+			width: 31px;
+			aspect-ratio: 1;
+			place-items: center;
+			border-radius: 50%;
+			background: var(--leaf);
+			font-family: var(--body);
+			font-size: 15px;
+		}
+		.site-nav { display: flex; align-items: center; gap: 8px; }
+		.site-nav a {
+			padding: 8px 12px;
+			border-radius: 3px;
+			color: var(--muted);
+			font-size: 14px;
+			font-weight: 700;
+			text-decoration: none;
+			transition: color 160ms ease, background-color 160ms ease;
+		}
+		.site-nav a:hover, .site-nav a:focus-visible { background: #e8eddd; color: var(--ink); }
+
+		.hero {
+			display: grid;
+			min-height: 470px;
+			grid-template-columns: 1fr 0.95fr;
+			align-items: center;
+			gap: 64px;
+			padding-block: 66px;
+			animation: arrive 600ms ease both;
+		}
+		.eyebrow {
+			margin: 0 0 10px;
+			color: var(--rust);
+			font-size: 11px;
+			font-weight: 700;
+			letter-spacing: 1.2px;
+			text-transform: uppercase;
+		}
+		.hero h1 {
+			max-width: 550px;
+			margin: 0 0 18px;
+			font-family: var(--heading);
+			font-size: clamp(48px, 6vw, 76px);
+			font-weight: 600;
+			line-height: 0.98;
+		}
+		.hero h1 em { color: var(--rust); font-weight: 500; }
+		.hero-copy > p:not(.eyebrow) { max-width: 440px; margin: 0 0 26px; color: var(--muted); font-size: 17px; }
+		.button {
+			display: inline-flex;
+			min-height: 46px;
+			align-items: center;
+			justify-content: center;
+			gap: 12px;
+			padding: 10px 17px;
+			border: 0;
+			border-radius: 3px;
+			background: var(--ink);
+			color: var(--white);
+			font: 700 14px var(--body);
+			text-decoration: none;
+			transition: transform 160ms ease, background-color 160ms ease;
+		}
+		.button:hover, .button:focus-visible { transform: translateY(-2px); background: #315a4b; }
+		.hero-photo {
+			position: relative;
+			min-height: 330px;
+			margin: 0;
+			padding: 12px;
+			background: var(--leaf);
+			transform: rotate(1.5deg);
+		}
+		.hero-photo img { width: 100%; height: 330px; object-fit: cover; }
+		.hero-photo figcaption {
+			position: absolute;
+			right: 24px;
+			bottom: 24px;
+			left: 24px;
+			padding: 38px 16px 12px;
+			background: linear-gradient(transparent, rgb(16 36 31 / 78%));
+			color: var(--white);
+			font-size: 12px;
+			font-weight: 700;
+			letter-spacing: 1px;
+			text-transform: uppercase;
+		}
+
+		.destinations {
+			padding: 66px 0 78px;
+			background: #edf0e7;
+		}
+		.section-heading {
+			display: flex;
+			align-items: end;
+			justify-content: space-between;
+			gap: 24px;
+			margin-bottom: 27px;
+		}
+		.section-heading h2, .featured-copy h2 {
+			margin: 0;
+			font-family: var(--heading);
+			font-size: clamp(34px, 4vw, 48px);
+			font-weight: 600;
+			line-height: 1.08;
+		}
+		.section-note { margin: 0 0 3px; color: var(--muted); font-size: 14px; }
+		.destination-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+		.destination-card {
+			min-width: 0;
+			overflow: hidden;
+			border: 1px solid #d9ded2;
+			border-radius: 4px;
+			background: var(--white);
+			box-shadow: 0 5px 18px rgb(25 53 47 / 5%);
+			transition: transform 200ms ease, box-shadow 200ms ease;
+		}
+		.destination-card:hover, .destination-card:focus-within {
+			transform: translateY(-5px);
+			box-shadow: 0 13px 26px rgb(25 53 47 / 13%);
+		}
+		.card-image { position: relative; height: 210px; overflow: hidden; background: #d5ddcf; }
+		.card-image img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			transition: transform 400ms ease;
+		}
+		.destination-card:hover .card-image img, .destination-card:focus-within .card-image img { transform: scale(1.06); }
+		.image-overlay {
+			position: absolute;
+			inset: 0;
+			display: flex;
+			flex-direction: column;
+			justify-content: end;
+			padding: 18px;
+			background: linear-gradient(transparent 36%, rgb(12 29 25 / 78%));
+			color: var(--white);
+		}
+		.image-overlay h3 { margin: 0; font-family: var(--heading); font-size: 27px; font-weight: 600; line-height: 1.1; }
+		.image-overlay p {
+			max-height: 0;
+			margin: 0;
+			overflow: hidden;
+			opacity: 0;
+			font-size: 12px;
+			transform: translateY(8px);
+			transition: max-height 220ms ease, opacity 220ms ease, transform 220ms ease, margin 220ms ease;
+		}
+		.destination-card:hover .image-overlay p, .destination-card:focus-within .image-overlay p {
+			max-height: 45px;
+			margin-top: 5px;
+			opacity: 1;
+			transform: translateY(0);
+		}
+		.card-content { padding: 17px 17px 18px; }
+		.card-description { min-height: 70px; margin: 0 0 15px; color: var(--muted); font-size: 13px; line-height: 1.55; }
+		.card-content h4 { margin: 0 0 7px; color: var(--ink); font-size: 11px; letter-spacing: 0.8px; text-transform: uppercase; }
+		.card-content ul { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 15px; padding: 0; list-style: none; }
+		.card-content li { padding: 4px 7px; border-radius: 2px; background: #edf0e7; color: #435b4d; font-size: 11px; line-height: 1.35; }
+		.card-fact { margin: 0; padding-top: 12px; border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; }
+		.card-fact strong { color: var(--rust); }
+
+		.featured { padding-block: 78px; }
+		.featured-layout {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			align-items: center;
+			gap: 60px;
+		}
+		.featured-image { height: 350px; overflow: hidden; background: #d5ddcf; }
+		.featured-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 450ms ease; }
+		.featured-image:hover img { transform: scale(1.035); }
+		.featured-copy h2 { margin-bottom: 14px; }
+		.featured-copy > p:not(.eyebrow) { margin: 0 0 18px; color: var(--muted); }
+		.tip { margin: 0 0 23px; padding: 12px 14px; border-left: 3px solid var(--leaf); background: #edf0e7; color: var(--ink); font-size: 13px; }
+		.tip strong { color: var(--rust); }
+		.site-footer { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding-block: 20px; border-top: 1px solid var(--line); }
+		.site-footer p { margin: 0; color: var(--muted); font-size: 12px; }
+
+		@keyframes arrive { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+		@media (max-width: 900px) {
+			.hero { min-height: 0; gap: 35px; }
+			.destination-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+			.featured-layout { gap: 34px; }
+		}
+		@media (max-width: 600px) {
+			.page-width { width: min(100% - 32px, 480px); }
+			.site-header { padding-inline: 16px; }
+			.site-nav { gap: 0; }
+			.site-nav a { padding: 8px; font-size: 12px; }
+			.hero { grid-template-columns: 1fr; gap: 28px; padding-block: 48px; }
+			.hero h1 { font-size: 54px; }
+			.hero-photo, .hero-photo img { min-height: 250px; height: 250px; }
+			.destinations { padding-block: 48px; }
+			.section-heading { display: block; }
+			.section-note { margin-top: 9px; }
+			.destination-grid { gap: 12px; }
+			.card-image { height: 160px; }
+			.image-overlay { padding: 12px; }
+			.image-overlay h3 { font-size: 22px; }
+			.card-content { padding: 13px; }
+			.card-description { min-height: 112px; font-size: 12px; }
+			.featured { padding-block: 52px; }
+			.featured-layout { grid-template-columns: 1fr; gap: 24px; }
+			.featured-image { height: 260px; }
+			.site-footer { align-items: flex-start; flex-direction: column; }
+		}
+		@media (max-width: 380px) {
+			.wordmark { gap: 5px; font-size: 19px; }
+			.site-nav a { padding-inline: 6px; font-size: 11px; }
+			.destination-grid { grid-template-columns: 1fr; }
+			.card-image { height: 210px; }
+			.card-description { min-height: 0; }
+		}
+		@media (prefers-reduced-motion: reduce) {
+			*, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+		}
+	</style>
+</head>
+<body>
+	<header class="site-header">
+		<a class="wordmark" href="#top" aria-label="Elsewhere travel home"><span class="wordmark-mark">E</span> elsewhere</a>
+		<nav class="site-nav" aria-label="Main navigation">
+			<a href="#destinations">Destinations</a>
+			<a href="#featured">Featured trip</a>
+		</nav>
+	</header>
+
+	<main id="top">
+		<section class="hero page-width" aria-labelledby="page-title">
+			<div class="hero-copy">
+				<p class="eyebrow">A little farther from the everyday</p>
+				<h1 id="page-title">Find your<br>kind of <em>elsewhere.</em></h1>
+				<p>Four places, four different ways to see the world. Pick a place that sparks your curiosity and start imagining the trip.</p>
+				<a class="button" href="#destinations">Explore the destinations <span aria-hidden="true">→</span></a>
+			</div>
+			<figure class="hero-photo">
+				<img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1200&q=85" alt="Traditional Kyoto street with a pagoda and green hills">
+				<figcaption>Kyoto, Japan · Find the quiet lane</figcaption>
+			</figure>
+		</section>
+
+		<section class="destinations" id="destinations" aria-labelledby="destinations-title">
+			<div class="page-width">
+				<div class="section-heading">
+					<div><p class="eyebrow">Four places to begin</p><h2 id="destinations-title">Where to next?</h2></div>
+					<p class="section-note">A different feeling in every direction.</p>
+				</div>
+				<div class="destination-grid">
+					<article class="destination-card">
+						<div class="card-image">
+							<img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=900&q=85" alt="Pagoda and traditional buildings in Kyoto">
+							<div class="image-overlay"><h3>Kyoto, Japan</h3><p>Old streets, soft lantern light, and a slower pace.</p></div>
+						</div>
+						<div class="card-content">
+							<p class="card-description">A city where peaceful gardens and wooden tea houses sit alongside lively markets and modern neighborhoods.</p>
+							<h4>Things to do</h4>
+							<ul><li>Walk the Fushimi Inari gates</li><li>Visit Arashiyama</li><li>Try a tea ceremony</li></ul>
+							<p class="card-fact"><strong>Little detail:</strong> Kyoto is famous for its seasonal cherry blossoms and autumn leaves.</p>
+						</div>
+					</article>
+
+					<article class="destination-card">
+						<div class="card-image">
+							<img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=900&q=85" alt="The Colosseum in Rome under a bright sky">
+							<div class="image-overlay"><h3>Rome, Italy</h3><p>Ancient landmarks around every corner.</p></div>
+						</div>
+						<div class="card-content">
+							<p class="card-description">A lively open-air history book, with grand ruins, neighborhood cafes, and plenty of unforgettable food.</p>
+							<h4>Things to do</h4>
+							<ul><li>Tour the Colosseum</li><li>See the Trevi Fountain</li><li>Explore Trastevere</li></ul>
+							<p class="card-fact"><strong>Little detail:</strong> Rome's historic center is a UNESCO World Heritage Site.</p>
+						</div>
+					</article>
+
+					<article class="destination-card">
+						<div class="card-image">
+							<img src="https://images.unsplash.com/photo-1476610182048-b716b8518aae?auto=format&fit=crop&w=900&q=85" alt="Waterfall flowing through Iceland's rugged landscape">
+							<div class="image-overlay"><h3>Iceland</h3><p>Big landscapes made for the long way around.</p></div>
+						</div>
+						<div class="card-content">
+							<p class="card-description">Waterfalls, black-sand beaches, and volcanic landscapes make every drive feel like an expedition.</p>
+							<h4>Things to do</h4>
+							<ul><li>See the Golden Circle</li><li>Relax in a hot spring</li><li>Chase the northern lights</li></ul>
+							<p class="card-fact"><strong>Little detail:</strong> Iceland sits where the North American and Eurasian tectonic plates meet.</p>
+						</div>
+					</article>
+
+					<article class="destination-card">
+						<div class="card-image">
+							<img src="https://images.unsplash.com/photo-1518391846015-55a9cc003b25?auto=format&fit=crop&w=900&q=85" alt="New York City skyline seen from across the river">
+							<div class="image-overlay"><h3>New York, USA</h3><p>Neighborhoods with their own rhythm.</p></div>
+						</div>
+						<div class="card-content">
+							<p class="card-description">A fast-moving city of skyline views, world-class museums, neighborhood slices, and late-night energy.</p>
+							<h4>Things to do</h4>
+							<ul><li>Walk Central Park</li><li>Visit a museum</li><li>See the skyline at dusk</li></ul>
+							<p class="card-fact"><strong>Little detail:</strong> The city's five boroughs each have a distinct character.</p>
+						</div>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<section class="featured page-width" id="featured" aria-labelledby="featured-title">
+			<div class="featured-layout">
+				<div class="featured-image">
+					<img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1200&q=85" alt="A pagoda rises above Kyoto's rooftops">
+				</div>
+				<div class="featured-copy">
+					<p class="eyebrow">Featured destination · Japan</p>
+					<h2 id="featured-title">Take the scenic route through Kyoto.</h2>
+					<p>Kyoto rewards unhurried exploring. Start early at the shrine paths, pause for lunch in a small neighborhood spot, then spend the afternoon among gardens and old lanes. The best moments often happen between the famous stops.</p>
+					<p class="tip"><strong>Travel tip:</strong> Visit popular sites early in the morning, and leave time to wander the quieter side streets.</p>
+					<a class="button" href="#destinations">Plan your trip <span aria-hidden="true">↗</span></a>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="site-footer page-width">
+		<a class="wordmark" href="#top"><span class="wordmark-mark">E</span> elsewhere</a>
+		<p>Travel Destination Showcase · OCVTS Computer Science · Mini-Project #05</p>
+	</footer>
+</body>
+</html>

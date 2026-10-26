@@ -116,7 +116,7 @@
       button.addEventListener('click', () => {
         const saved = button.getAttribute('aria-pressed') === 'true';
         button.setAttribute('aria-pressed', String(!saved));
-        button.textContent = saved ? '♡ Save' : '♥ Saved';
+        button.textContent = saved ? 'Save' : 'Saved';
       });
     });
   </script>
